@@ -430,7 +430,7 @@ function M.setup_auto_install()
     pattern = { "*" },
     callback = function()
       local lang = parsers.get_buf_lang()
-      if parsers.get_parser_configs()[lang] and not parsers.has_parser(lang) then
+      if parsers.get_parser_configs()[lang] and not is_installed(lang) then
         install { ask_reinstall = true } { lang }
       end
     end,
